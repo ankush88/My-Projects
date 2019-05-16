@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col" style="text-align:center">Login as an User Or Admin</div>
+  </div>
+  <div class="row" style="padding-top: 80px; padding-bottom: 40px">
+    <div class="col-md-4"><a routerLink="/adminlogin">ADMIN</a></div>
+    <div class="col-md-4 offset-md-2" style="text-align:right">
+         <a routerLink="/userlogin">USER</a>
+    </div>
+</div>
+</div>
+<form (ngSubmit)="onSubmit(createForm.value)" #createForm="ngForm">
+  <div class="container d-flex justify-content-end">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <label for="User Name"> User Name </label>
+         <input type="text" name="name" #username="ngModel" required ngModel>
+           <div [hidden]="username.valid || username.pristine">
+              <p>Please enter a valid name!!</p>
+           </div>
+        <label for="Password"> Password </label>
+         <input type="password" name="password" #pwd="ngModel" required ngModel>
+           <div [hidden]="pwd.valid || pwd.pristine">
+                 <p>Please enter a valid password!!</p>
+           </div>
+           <div>
+              <button type="submit" [disabled]="!createForm.form.valid">Submit</button>
+           </div>
+      </div>
+    </div>
+  </div>
+</form>
+<div [hidden]="!submitted">
+   <p> You created a new User </p>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+   <h2>User List</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of usersList; index as id">
+      <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.usertype }}</td>
+        <td> ( <a routerLink = "/admin/delete/{{id}}">Delete</a>|<a routerLink= "/admin/update/{{id}}">Update</a>)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+   <router-outlet><router-outlet>

@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSubmit(createForm.value)" #createForm="ngForm">
+   <div class="container">
+     <div class="col-md-6">
+      <div class="form-group col-md-6">
+        <label for="User Name">User Name</label>
+         <input type="text" name="name" #username="ngModel" required ngModel>
+           <div [hidden]="username.valid || username.pristine">
+              <p>Please enter a valid name!!</p>
+           </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="Password">Password</label>
+         <input type="password" name="password" #pwd="ngModel" required ngModel>
+           <div [hidden]="pwd.valid || pwd.pristine">
+                 <p>Please enter a valid password!!</p>
+           </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="User Role">User Role</label>
+          <input type="text" name="userrole" #usrrole="ngModel" required ngModel>
+            <div [hidden]="usrrole.valid || usrrole.pristine">
+                <p>Please enter a valid User Role!!</p>
+            </div>
+        <div>
+           <button type="submit" [disabled]="!createForm.form.valid">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<div [hidden]="!submitted">
+   <p> You created a new User </p>
+</div>

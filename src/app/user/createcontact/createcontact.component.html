@@ -1,0 +1,43 @@
+<form (ngSubmit)="onSubmit(createForm.value)" #createForm="ngForm">
+    <div class="container">
+      <div class="col-md-6">
+       <div class="form-group col-md-6">
+        <label for="Contact Name">Contact Name</label>
+         <input type="text" name="name" #ctcname="ngModel" required ngModel>
+           <div [hidden]="ctcname.valid || ctcname.pristine">
+              <p>Please enter a valid name!!</p>
+           </div>
+       </div>
+      <div class="form-group col-md-6">
+        <label for="Phone">Phone No</label>
+         <input type="text" name="phone" #ctcphone="ngModel" required ngModel>
+           <div [hidden]="ctcphone.valid || ctcphone.pristine">
+                 <p>Please enter a valid phone number!!</p>
+           </div>
+      </div>
+        <div class="form-group col-md-6">
+             <label for="Apt NO"> Apt No: </label>
+               <input type="text" name="aptno" #ctcapt="ngModel" required ngModel>
+               <div [hidden]="ctcphone.valid || ctcphone.pristine">
+                     <p>Please enter a valid phone number!!</p>
+               </div>
+               <label for="street"> Street: </label>
+               <input type="text" name="street" #ctcstreet="ngModel" required ngModel>
+               <div [hidden]="ctcphone.valid || ctcphone.pristine">
+                     <p>Please enter a valid phone number!!</p>
+               </div>
+               <label for="zip code"> Zip Code: </label>
+               <input type="text"  name="zip" #ctczip="ngModel" required ngModel>
+               <div [hidden]="ctcphone.valid || ctcphone.pristine">
+                     <p>Please enter a valid phone number!!</p>
+               </div>
+        </div>
+        <div>
+              <button type="submit" [disabled]="!createForm.form.valid">Submit</button>
+        </div>
+      </div>
+    </div>
+</form>
+<div [hidden]="!submitted">
+   <p> You created a new contact </p>
+</div>
